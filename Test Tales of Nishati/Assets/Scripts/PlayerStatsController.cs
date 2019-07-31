@@ -1,6 +1,14 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Collections.Generic;
+
+[System.Serializable]
+public class BasicInfoChar
+{
+    public BasicStats baseInfo;
+    public TypeCharacter typeChar;
+}
 
 public class PlayerStatsController : MonoBehaviour
 {
@@ -9,6 +17,7 @@ public class PlayerStatsController : MonoBehaviour
     public int xpMultiply = 1;
     public float xpFirstLevel = 100;
     public float difficultFactor = 1.5f;
+    public List<BasicInfoChar> baseInfoChars;
 
 
 
@@ -93,6 +102,19 @@ public class PlayerStatsController : MonoBehaviour
     public static void SetTyperCharacter (TypeCharacter newType)
     {
         PlayerPrefs.SetInt("TypeCharacter", (int)newType);
+    }
+
+    public BasicStats GetBasicsStats(TypeCharacter type)
+    {
+        foreach(BasicInfoChar info in baseInfoChars)
+        {
+            if(info.typeChar == type)
+            {
+                return info.baseInfo;
+            }
+        }
+
+        return baseInfoChars[0].baseInfo;
     }
 
     void OnGUI()

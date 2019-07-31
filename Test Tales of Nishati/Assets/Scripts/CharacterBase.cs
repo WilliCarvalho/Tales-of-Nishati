@@ -2,17 +2,24 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public abstract class CharacterBase : MonoBehaviour
+[System.Serializable]
+public class BasicStats
 {
     //Basics atributes
-    public int currentLevel;
     public float startLife;
     public float startMana;
     public int strength;
+    public int magic;
     public int agility;
     public int baseDefence;
     public int baseAttack;
-    
+}
+
+public abstract class CharacterBase : MonoBehaviour
+{
+    public int currentLevel;
+    public BasicStats basicStats;
+
     // Start is called before the first frame update
     protected void Start()
     {

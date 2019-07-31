@@ -19,6 +19,8 @@ public class PlayerBehavior : CharacterBase
         base.Start();
         currentLevel = PlayerStatsController.GetCurrentLevel();
         type = PlayerStatsController.GetTypeCharacter();
+
+        basicStats = PlayerStatsController.instance.GetBasicsStats(type);
     }
 
     // Update is called once per frame
