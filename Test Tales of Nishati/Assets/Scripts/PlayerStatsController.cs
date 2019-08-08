@@ -26,11 +26,8 @@ public class PlayerStatsController : MonoBehaviour
     {
         instance = this;
         DontDestroyOnLoad(gameObject);
-        Application.LoadLevel("Gameplay");
+        //Application.LoadLevel("Gameplay");
 
-
-
-       
     }
 
     // Update is called once per frame
